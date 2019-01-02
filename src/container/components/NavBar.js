@@ -9,6 +9,7 @@ const NavBar = () => (
     <Link  className="k-button k-primary" to="/grids">Grid</Link> 
     <Link  className="k-button k-primary" to="/dropdowns">Dropdowns</Link>
     <Link  className="k-button k-primary" to="/forms">Forms</Link>
+    <Link  className="k-button k-primary" to="/notification">Notification</Link>
     </div>
   </div>
 )

@@ -7,10 +7,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import rootReducer from './store/reducer'
-
+import serviceWorker from "./serviceWorker";
 
 const history = createBrowserHistory()
-
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
   rootReducer(history),
@@ -20,6 +19,11 @@ const store = createStore(
     ),
   ),
 )
+//push notification
+
+//push notification
+
+
 
 const render = () => {
   ReactDOM.render(
@@ -30,6 +34,7 @@ const render = () => {
     </AppContainer>,
     document.getElementById('root')
   )
+  
 }
 
 render()
@@ -46,3 +51,4 @@ if (module.hot) {
     store.replaceReducer(rootReducer(history))
   })
 }
+serviceWorker();

@@ -7,6 +7,7 @@ import GridMenu from '../components/grids/index';
 import DropdownComponent from '../components/dropdowns/dropdownlist' 
 import Login from '../components/forms/loginform'
 import FormMenu from '../components/forms/index'
+import Hello from '../components/Hello'
 const routes = (
   <div>
     <NavBar/>
@@ -17,6 +18,7 @@ const routes = (
       <Route path="/Home" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/forms" component={FormMenu} />
+      <Route path="/notification" component={Hello} />
       <Route component={NoMatch} />
     </Switch>
   </div>
