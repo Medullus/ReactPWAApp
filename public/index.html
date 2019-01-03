@@ -36,9 +36,17 @@
         firebase.initializeApp(config);
         const messaging = firebase.messaging();
         try {
-      messaging.requestPermission();
+        messaging.requestPermission();
+        
         messaging.getToken().then(tok=>{ localStorage.setItem('toki',tok)});
-    
+        const authkey='key=AAAAKXFjjmo:APA91bHYjF0NK8RL2Tc3Kbh5GcY0BHqBrroWqLkbkVynMs2aNfYMjul0CD9C053FRylbgyPb6l5482kBYSbDDbAozh5iYmm-Kk_cx8PHPqKgkRgR2fruCfkZDxAu8N92eaMq4Yad8suB';
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json','Authorization':authkey},
+   
+};
+
+ fetch(`https://iid.googleapis.com/iid/v1/`+localStorage.getItem('toki')+`/rel/topics/MedullusAppCenter`, requestOptions);
        
   } catch (error) {
     console.error(error);
@@ -49,6 +57,7 @@
             self.navigator.serviceWorker.getRegistrations().then((registrations) => {
                 if (registrations.length === 0) {
                     // No service workers registered
+                   // console.log(' No service workers registered');
                     return;
                 }
                 else{
@@ -58,6 +67,7 @@
                         icon: payload.notification.icon
                     };
                     // registration[1] refers to firebase service worker , registration[0] is create-react-app service worker
+                  // console.log(registrations);
                     registrations[1].showNotification(notificationTitle, notificationOptions);
                 }
             });
